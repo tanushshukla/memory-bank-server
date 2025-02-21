@@ -1,0 +1,28 @@
+{
+  "name": "memory-bank-server",
+  "version": "0.1.0",
+  "description": "memory bank",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "memory-bank-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node --input-type=module -e \"import { chmod } from 'fs/promises'; await chmod('build/index.js', '755');\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "node-persist": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/node-persist": "^3.1.8",
+    "typescript": "^5.3.3"
+  }
+}
